@@ -8,9 +8,9 @@ Este é um modelo base para uma API modular em camadas utilizado no módulo de N
 
 Para configurar este projeto localmente, siga estas etapas:
 
-1. Clone o repositório: `git clone https://github.com/comeia-academy/admin-system-react-ts.git`
+1. Clone o repositório: `git clone https://github.com/comeia-academy/modular-layer-api-node-ts.git`
 
-2. Crie um arquivo `.env.local` na raiz do projeto e preencha as seguintes variáveis:
+2. Crie um arquivo `.env` na raiz do projeto e preencha as seguintes variáveis:
 
 ```env
 DB_HOST=
