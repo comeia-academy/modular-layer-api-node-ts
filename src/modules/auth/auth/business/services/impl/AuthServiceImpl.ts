@@ -29,12 +29,12 @@ export class AuthServiceImpl implements AuthService {
     }
 
     async signup(auth: AuthDTO): Promise<TokenDTO> {
-        const user = await this.userService.createItem({ 
+        await this.userService.createItem({ 
             email: auth.email, 
             password: PasswordFacade.hash(auth.password)
         });
         
-        return this.signin(user);
+        return this.signin(auth);
     }
 
 }
