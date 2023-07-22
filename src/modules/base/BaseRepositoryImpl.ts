@@ -19,14 +19,20 @@ export class BaseRepositoryImpl<T, U, V> implements BaseRepository<T, U, V> {
     }
 
     async getItemById(id: number): Promise<T> {
-        const item =  await this.typeormRepository.findOne({ 
-            where: { [this.primaryKey]: id } as FindOptionsWhere<T> 
+        const item = this.getItemByField(this.primaryKey as string, id.toString());
+        
+        return item;
+    }
+
+    async getItemByField(field: string, value: string): Promise<T> {
+        const item = this.typeormRepository.findOne({
+            where: { [field]: value } as FindOptionsWhere<T>
         });
 
         if (!item) {
             throw new Error(`Register not found!`);
         }
-        
+
         return item;
     }
 

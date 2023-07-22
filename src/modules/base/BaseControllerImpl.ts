@@ -23,6 +23,12 @@ export class BaseControllerImpl<T, U, V> implements BaseController {
         return res.json(item);
     }
 
+    public async getItemByField(req: Request, res: Response): Promise<Response> {
+        const { field, value } = req.params;
+        const item = await this.baseService.getItemByField(field, value);
+        return res.json(item);
+    }
+
     public async createItem(req: Request, res: Response): Promise<Response> {
         const item = await this.baseService.createItem(req.body as U);
         return res.json(item);

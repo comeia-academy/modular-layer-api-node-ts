@@ -19,6 +19,10 @@ export class BaseServiceImpl<T, U, V> implements BaseService<T, U, V> {
         return this.baseRepository.getItemById(id);
     }
 
+    async getItemByField(field: string, value: string): Promise<T> {
+        return this.baseRepository.getItemByField(field, value);
+    }
+
     async createItem(item: U): Promise<T> {
         return this.baseRepository.createItem(item);
     }
